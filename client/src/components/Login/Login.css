@@ -1,0 +1,34 @@
+.login-form-container {
+    background-color: azure;
+    border-radius: 20px; 
+    border: 1pt solid gray; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    width: 33%;
+    height: 40%;
+    gap: 15px; 
+    padding: 20px 15px;
+}
+
+h1{
+    margin:5px
+}
+
+input{
+    width: 65%;
+    height: 30px;
+    border-radius: 5px;
+}
+
+button{
+    cursor: pointer;
+    width: 25%;
+    height: 32px;
+    border-radius: 8px;
+    border: 1pt solid #025abe;
+    color: white;
+    font-weight: 600;
+    background-color: #0077ff;
+}
