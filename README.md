@@ -1,206 +1,124 @@
-# Le-coin
-
-
-Express API Project
-
-This project is an Express.js application that provides RESTful APIs for managing articles, authentication, and user operations. The application uses middleware for authentication and organizes routes into separate modules for better maintainability.
-
-Table of Contents
-
-Features
-
-Installation
-
-Usage
-
-Routes
-
-Article Routes
-
-Auth Routes
-
-User Routes
-
-Project Structure
-
-Dependencies
-
-Features
-
-Create, read, update, and delete articles.
-
-User authentication with registration and login.
-
-Password reset functionality with reset codes.
-
-User management features: update and delete users.
-
-Authentication middleware to protect routes.
-
-Installation
-
-Clone the repository:
-
-git clone https://github.com/your-repository.git
-
-Navigate to the project directory:
-
-cd your-project-directory
-
-Install dependencies:
-
-npm install
-
-Create a .env file for environment variables and configure it (e.g., database URL, JWT secret).
-
-Start the server:
-
-npm start
-
-Usage
-
-Routes
-
-Article Routes
-
-Method
-
-Endpoint
-
-Description
-
-POST
-
-/article
-
-Create a new article.
-
-GET
-
-/articles
-
-Retrieve all articles.
-
-GET
-
-/article/:articleId
-
-Retrieve a single article by ID.
-
-PUT
-
-/article/:articleId
-
-Update an article by ID.
-
-GET
-
-/user/:userId/articles
-
-Get articles by a specific user.
-
-DELETE
-
-/article/:articleId
-
-Delete an article by ID.
-
-Auth Routes
-
-Method
-
-Endpoint
-
-Description
-
-POST
-
-/register
-
-Register a new user.
-
-POST
-
-/login
-
-Login a user.
-
-POST
-
-/forgot-password
-
-Send a password reset code to the user.
-
-POST
-
-/verify-code
-
-Verify the reset code.
-
-POST
-
-/reset-password
-
-Reset the user's password.
-
-User Routes
-
-Method
-
-Endpoint
-
-Description
-
-GET
-
-/users
-
-Retrieve all users.
-
-DELETE
-
-/delete
-
-Delete a user.
-
-PUT
-
-/update/:id
-
-Update user details by ID.
-
-Project Structure
-
-project-directory
-├── controllers
-│   ├── articleController.js
-│   ├── authController.js
-│   ├── forgotPasswordController.js
-│   ├── userController.js
-├── middlewares
-│   ├── authMiddleware.js
-├── models
-│   ├── articleModel.js
-│   ├── userModel.js
-├── routes
-│   ├── articleRoutes.js
-│   ├── authRoutes.js
-│   ├── userRoutes.js
-├── .env
-├── app.js
-├── package.json
-
-Dependencies
-
-express: Web framework for Node.js.
-
-mongoose: MongoDB object modeling tool.
-
-jsonwebtoken: For JWT authentication.
-
-bcryptjs: For hashing passwords.
-
-dotenv: Load environment variables.
-
-Feel free to modify this README to fit the specific details and requirements of your project.
+# Documentation de l'API Express
+
+## Description
+
+Ce projet est une API construite avec Express.js pour gérer les utilisateurs, les articles et les opérations liées à l'authentification et à la réinitialisation des mots de passe. L'API inclut des fonctionnalités comme l'inscription, la connexion, la gestion des articles (création, mise à jour, suppression, récupération), ainsi que la réinitialisation des mots de passe.
+
+## Prérequis
+
+- Node.js (v14 ou supérieur)
+- npm (v6 ou supérieur)
+- MongoDB
+
+## Installation
+
+1. Clonez ce dépôt :
+   ```bash
+   git clone <URL-du-dépôt>
+   ```
+2. Installez les dépendances :
+   ```bash
+   npm install
+   ```
+3. Configurez les variables d'environnement :
+   Créez un fichier `.env` et ajoutez les variables nécessaires, par exemple :
+   ```env
+   PORT=3000
+   MONGO_URI=<URL de la base de données MongoDB>
+   JWT_SECRET=<votre clé secrète JWT>
+   ```
+
+## Démarrage
+
+1. Lancez le serveur en mode développement :
+   ```bash
+   npm run dev
+   ```
+2. L'API sera accessible sur `http://localhost:<PORT>`.
+
+## Routes de l'API
+
+### Authentification
+
+- **Inscription**
+  - `POST /register`
+  - Corps de la requête :
+    ```json
+    {
+      "username": "string",
+      "email": "string",
+      "password": "string"
+    }
+    ```
+- **Connexion**
+  - `POST /login`
+  - Corps de la requête :
+    ```json
+    {
+      "email": "string",
+      "password": "string"
+    }
+    ```
+- **Réinitialisation de mot de passe**
+  - `POST /forgot-password`
+  - `POST /verify-code`
+  - `POST /reset-password`
+
+### Gestion des utilisateurs
+
+- **Récupérer les utilisateurs**
+  - `GET /users`
+- **Mettre à jour un utilisateur**
+  - `PUT /update/:id`
+- **Supprimer un utilisateur**
+  - `DELETE /delete`
+
+### Gestion des articles
+
+- **Créer un article**
+  - `POST /article`
+- **Récupérer tous les articles**
+  - `GET /articles`
+- **Récupérer un article par ID**
+  - `GET /article/:articleId`
+- **Mettre à jour un article**
+  - `PUT /article/:articleId`
+- **Récupérer des articles par utilisateur**
+  - `GET /user/:userId/articles`
+- **Supprimer un article**
+  - `DELETE /article/:articleId`
+
+## Middlewares
+
+- `authMiddleware` : Vérifie l'authentification de l'utilisateur à l'aide d'un jeton JWT.
+
+## Modèles de données
+
+### Utilisateur
+```json
+{
+  "username": "string",
+  "email": "string",
+  "password": "string"
+}
+```
+
+### Article
+```json
+{
+  "title": "string",
+  "content": "string",
+  "category": "string",
+  "author": "id de l'utilisateur",
+  "imagePath": "string"
+}
+```
+
+## Contributions
+
+Les contributions sont les bienvenues ! Veuillez soumettre une pull request avec une description claire des modifications proposées.
+
+## Licence
+
+Ce projet est sous licence MIT.
 
