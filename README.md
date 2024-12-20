@@ -14,7 +14,7 @@ Ce projet est une API construite avec Express.js pour gérer les utilisateurs, l
 
 1. Clonez ce dépôt :
    ```bash
-   git clone <URL-du-dépôt>
+   git clone https://github.com/Walidx7x7/Le-coin
    ```
 2. Installez les dépendances :
    ```bash
